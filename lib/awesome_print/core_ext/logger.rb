@@ -8,10 +8,10 @@ module AwesomePrint
 
     # Add ap method to logger
     #------------------------------------------------------------------------------
-    def ap(object, level = nil)
+    def ap(object, level = nil, opts = {})
       level ||= AwesomePrint.defaults[:log_level] if AwesomePrint.defaults
       level ||= :debug
-      send level, object.ai
+      send level, object.ai(opts)
     end
   end
 end
